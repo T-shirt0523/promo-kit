@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+
+# 本机工具路径与 IP 名单：属于个人配置，不进版本库。
+# 复制对应的 .example 文件改名后使用。
+scripts/local-paths.json
+assets/ip-watchlist.txt
+
+# 产出物
+promo-out/
+facts.json

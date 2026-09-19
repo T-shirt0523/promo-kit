@@ -1,0 +1,21 @@
+{
+  "_about": "窗口录屏的输入脚本示例。时间单位秒，相对录制开始。改这个文件即可驱动游戏自己玩出想要的画面。",
+  "_supported_fields": "每个 step 支持：at（秒，必填）/ hold（数组，按住）/ ms（hold 时长，默认 1000）/ tap（数组，点 90ms）/ mouse（x,y 为 0..1 相对客户区，click 取 L|R|M）。关键：没有 hold/tap/mouse 的 step 不产生任何输入，所以「留白」不需要专门字段 —— 只要那段时间里没有 step 即可。",
+  "_keys": "键名 raylib 风格可直接从源码抄：A-Z、0-9 或 ONE..NINE、SPACE、ENTER、ESC、TAB、SHIFT、CTRL、ALT、UP/DOWN/LEFT/RIGHT、F1-F12。",
+
+  "settle_ms": 1500,
+
+  "steps": [
+    { "at": 2.0, "hold": ["W"], "ms": 1800 },
+    { "at": 3.8, "hold": ["D"], "ms": 900 },
+
+    { "at": 4.7, "tap": ["E"] },
+    { "at": 5.6, "mouse": { "x": 0.42, "y": 0.55, "click": "L" } },
+    { "at": 6.2, "tap": ["E"] },
+
+    { "at": 7.0, "tap": ["SPACE"] },
+    { "at": 7.6, "tap": ["F"] },
+
+    { "at": 9.0, "hold": ["W", "SHIFT"], "ms": 1400 }
+  ]
+}

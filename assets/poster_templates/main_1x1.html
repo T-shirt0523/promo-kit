@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>{{TITLE}} · 电商主图</title>
+<style>
+  /* 电商主图必须白底、留白充足 —— 平台有自动抠图和缩略图要求，这是硬规则。
+     所以本模板不用项目的主题色做背景，配色固定为白底深字。
+
+     字号是按 1080×1080 可用高度反算出来的，不是拍脑袋：
+     内容区 908px，各块合计约 873px，留 35px 余量。
+     改任何一个字号前先把高度重算一遍 —— 否则会挤出画布，
+     而且 flex 会先压扁截图区（表现为截图变成中间一个小方块）。 */
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;width:{{W}}px;height:{{H}}px;overflow:hidden}
+  body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+       -webkit-font-smoothing:antialiased}
+  .poster{width:{{W}}px;height:{{H}}px;background:#fff;color:#111a28;
+          display:flex;flex-direction:column;align-items:center;
+          padding:96px 88px 76px;overflow:hidden;text-align:center}
+  .title{flex:0 0 auto;font-size:68px;font-weight:800;letter-spacing:3px;margin:0;
+         line-height:1.2;word-break:break-word;max-width:100%}
+  /* 行数钳制：不靠字数估算，交给浏览器裁到最多两行 */
+  .tagline{flex:0 0 auto;font-size:30px;color:#3d4a60;margin:26px 0 0;line-height:1.5;
+           max-width:780px;font-weight:500;display:-webkit-box;
+           -webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  /* 按截图自身的 16:9 定比例，并限制宽度 —— 铺满全宽会让高度超出可用空间，
+     被 flex 压缩后就又变成小方块了。flex:0 0 auto 明确禁止压缩。 */
+  .shot-wrap{flex:0 0 auto;width:620px;max-width:100%;aspect-ratio:16/9;
+             margin:34px 0 0;border-radius:16px;overflow:hidden;
+             border:1px solid #e2e8f2;background:#f4f7fb;display:{{SHOT_STYLE}}}
+  .shot{width:100%;height:100%;object-fit:contain;display:block}
+  ul{flex:0 0 auto;list-style:none;margin:34px 0 0;padding:0;width:100%;
+     display:flex;flex-direction:column;gap:14px;text-align:left}
+  li{font-size:30px;line-height:1.4;padding-left:42px;position:relative}
+  li::before{content:"";position:absolute;left:0;top:14px;width:19px;height:19px;
+             border-radius:50%;background:#1f6feb}
+  .foot{flex:0 0 auto;margin-top:auto;padding-top:30px;width:100%;
+        display:flex;align-items:center;justify-content:space-between;
+        border-top:2px solid #eef2f8}
+  .price{font-size:25px;color:#6b7a91;text-align:left}
+  .price b{display:block;font-size:48px;color:#111a28;margin-top:4px}
+  /* 这里是运行环境，不再重复副标 —— 副标已经在大标题下面说过一次了 */
+  .plat{font-size:24px;color:#6b7a91;text-align:right;max-width:420px;line-height:1.5}
+</style></head>
+<body>
+<div class="poster">
+  <h1 class="title">{{TITLE}}</h1>
+  <p class="tagline">{{TAGLINE}}</p>
+  <div class="shot-wrap"><img class="shot" src="{{SHOT}}" alt=""></div>
+  <ul>{{BULLETS}}</ul>
+  <div class="foot">
+    <div class="price">标准版<b>{{PRICE}}</b></div>
+    <div class="plat">运行环境<br>{{PLATFORMS}}</div>
+  </div>
+</div>
+</body></html>

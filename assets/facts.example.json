@@ -1,0 +1,67 @@
+{
+  "project_name": "pixel-wilderness",
+  "project_name_cn": "零素材像素荒野",
+  "project_name_source": "package.json 的 displayName",
+  "readme_title": "零素材像素荒野",
+  "project_type": "game",
+  "one_liner": "一个用纯代码生成的 2D 俯视像素生存游戏，全部精灵与音效由程序在运行时合成，不依赖任何外部素材。",
+  "features": [
+    "程序化生成的像素精灵，零外部素材引用，体积小于 30 MB",
+    "PCM 实时合成音效，没有音频文件依赖",
+    "本地 JSON 存档，无需联网即可游玩"
+  ],
+  "git_features_are_draft": true,
+  "detected_stacks": ["cannon-es", "three.js", "vite"],
+  "entry_points": ["index.html"],
+  "platforms": ["Windows"],
+  "platforms_assumed": false,
+  "languages": {".js": 4200, ".html": 320, ".css": 180},
+  "code_files": 31,
+  "loc": 4700,
+  "asset_mb": 2.4,
+  "audio_mb": 0.0,
+  "video_mb": 0.0,
+  "total_mb": 3.1,
+  "has_readme": true,
+  "readme_path": "README.md",
+  "screenshots": [
+    {"path": "shot/01.png", "w": 1280, "h": 720, "kb": 26.5},
+    {"path": "shot/02.png", "w": 1280, "h": 720, "kb": 20.1}
+  ],
+  "fonts": [],
+  "has_audio": true,
+  "has_ai_feature": false,
+  "ai_keywords": [],
+  "license_file": "license",
+  "blockers": [],
+  "warnings": [],
+  "missing_fields": ["audience", "delivery", "seller_name", "seller"],
+
+  "_scan": {"root": "./my-project", "file_count": 58},
+
+  "_comment_以下是需要人工补的字段": "",
+  "audience": ["只有碎片时间的上班族", "像素风怀旧玩家"],
+  "delivery": "网盘直链，付款后自动发送",
+  "seller_name": "你的署名",
+  "category": "像素风生存游戏",
+
+  "_comment_seller 段是收款闸门判定依据": "",
+  "seller": {
+    "age": 18,
+    "has_id_card": true,
+    "has_phone": true,
+    "has_bank_or_alipay": true
+  },
+
+  "_comment_可选覆盖项": "",
+  "entry_includes": "核心玩法，不含后续更新",
+  "standard_includes": "完整游戏 + 后续小版本更新",
+  "supporter_includes": "本体 + 全部更新 + 可商用授权",
+
+  "keywords": {
+    "core": "像素生存游戏",
+    "env": "PC电脑单机版",
+    "diff": "零外部素材",
+    "scene": "独立开发"
+  }
+}

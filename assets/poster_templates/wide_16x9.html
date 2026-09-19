@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>{{TITLE}} · 视频封面</title>
+<style>
+  /* 左文右图：视频封面在缩略图尺寸下只有左半边能被看清。 */
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;width:{{W}}px;height:{{H}}px;overflow:hidden}
+  body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+       -webkit-font-smoothing:antialiased}
+  .poster{position:relative;width:{{W}}px;height:{{H}}px;color:{{C_FG}};overflow:hidden;
+    background:linear-gradient(120deg,{{C_BG1}} 0%,{{C_BG2}} 100%);
+    display:flex;align-items:center;padding:0 96px;gap:74px}
+  .glow{position:absolute;width:1200px;height:1200px;border-radius:50%;
+        right:-380px;top:-300px;
+        background:radial-gradient(circle,{{C_ACCENT}}30 0%,transparent 65%);
+        pointer-events:none}
+  .left{flex:1 1 56%;min-width:0}
+  .badges{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+  .badge{font-size:23px;line-height:1;padding:11px 22px;border-radius:999px;
+         border:2px solid {{C_ACCENT}}66;color:{{C_ACCENT}};background:{{C_CARD}};
+         white-space:nowrap}
+  .title{font-size:110px;font-weight:800;line-height:1.1;margin:0 0 28px;
+         letter-spacing:3px;word-break:break-word}
+  /* 行数钳制：不靠字数估算，交给浏览器裁 */
+  .sub{font-size:38px;line-height:1.5;color:{{C_MUTED}};margin:0;
+       display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;
+       overflow:hidden}
+  .right{flex:1 1 44%;min-width:0;display:flex;flex-direction:column;
+         gap:24px;justify-content:center}
+  /* 按 16:9 定比例，让 contain 恰好铺满，不留上下黑边 */
+  .shot-wrap{flex:0 1 auto;aspect-ratio:16/9;min-height:0;border-radius:20px;
+             overflow:hidden;border:2px solid {{C_CARD}};background:{{C_BG2}};
+             box-shadow:0 30px 70px rgba(0,0,0,.42);display:{{SHOT_STYLE}}}
+  /* contain 而非 cover：实机画面不能被裁 */
+  .shot{width:100%;height:100%;object-fit:contain;display:block}
+  ul{flex:0 0 auto;list-style:none;margin:0;padding:0;
+     display:flex;flex-direction:column;gap:15px}
+  li{font-size:29px;line-height:1.4;padding-left:38px;position:relative}
+  li::before{content:"";position:absolute;left:0;top:13px;width:17px;height:17px;
+             border-radius:5px;background:{{C_ACCENT}}}
+  .price{flex:0 0 auto;font-size:25px;color:{{C_MUTED}}}
+  .price b{font-size:46px;color:{{C_FG}};margin-left:10px}
+</style></head>
+<body>
+<div class="poster">
+  <div class="glow"></div>
+  <div class="left">
+    <div class="badges">{{BADGES}}</div>
+    <h1 class="title">{{TITLE}}</h1>
+    <p class="sub">{{TAGLINE}}</p>
+  </div>
+  <div class="right">
+    <div class="shot-wrap"><img class="shot" src="{{SHOT}}" alt=""></div>
+    <ul>{{BULLETS}}</ul>
+    <div class="price">标准版<b>{{PRICE}}</b></div>
+  </div>
+</div>
+</body></html>
